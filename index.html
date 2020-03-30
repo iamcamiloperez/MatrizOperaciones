@@ -1,0 +1,852 @@
+<html>
+<head>
+	<title>CristhianPerez</title>
+    <!-- estilos -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <style>
+        .table td {
+            text-align: center;   
+        }
+        input{
+            width: 25%;
+            text-align: center;
+            border: none;
+        }
+
+        .oper{
+            width: 15%;
+        }
+
+        .fila{
+            border: 1px solid black;
+            padding: 10px 0;
+        }        
+
+        .fila > div{
+            width: 20%;
+            display: inline-block;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <h3>Aplica los siguientes operadores</h3>            
+        </div>
+        <div class="row">
+            <div class="col-3 alert alert-primary" role="alert">
+                <h3>Multiplicar (-)</h3>            
+            </div>
+            <div class="col-3 alert alert-secondary" role="alert">
+                <h3>Dividir (+)</h3>            
+            </div>
+            <div class="col-3 alert alert-danger" role="alert">
+                <h3>Sustraer (*)</h3>            
+            </div>
+            <div class="col-3 alert alert-success" role="alert">
+                <h3>Sumar (+)</h3>            
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 alert alert-light" role="alert">
+                Puedes editar los valores y operadores, los resultados se calcularán automáticamente
+              </div>
+        </div>        
+        <div class="row" data-ng-app="">
+            <div class="col-sm-6 col-md-3 fila"  data-ng-init="a1=3;a2=2;a3='*'">
+                <input type="number" ng-model="a1">
+                <input type="text" class="oper" ng-model="a3">
+                <input type="number" ng-model="a2">        
+                <div ng-if="a3=='+'"> = {{a1 / a2}}</div>
+                <div ng-if="a3=='-'"> = {{a1 * a2}}</div>
+                <div ng-if="a3=='*'"> = {{a1 - a2}}</div>
+                <div ng-if="a3=='/'"> = {{a1 + a2}}</div>
+            </div>
+            <div class="col-sm-6 col-md-3 fila" data-ng-init="b1=12;b2=3;b3='-'">
+                <input type="number" ng-model="b1">
+                <input type="text" class="oper" ng-model="b3">
+                <input type="number" ng-model="b2">        
+                <div ng-if="b3=='+'"> = {{b1 / b2}}</div>
+                <div ng-if="b3=='-'"> = {{b1 * b2}}</div>
+                <div ng-if="b3=='*'"> = {{b1 - b2}}</div>
+                <div ng-if="b3=='/'"> = {{b1 + b2}}</div>
+            </div>  
+            <div class="col-sm-6 col-md-3 fila" data-ng-init="
+                                               c1=6;
+                                               c2=2;
+                                               c3='+'">
+                <input type="number" ng-model="c1">
+     <input type="text" class="oper" ng-model="c3">
+                <input type="number" ng-model="c2">        
+                                   <div ng-if="c3=='+'">
+                                           = {{c1 / 
+                                               c2}}</div>
+                                   <div ng-if="c3=='-'">
+                                           = {{c1 * 
+                                               c2}}</div>
+                                   <div ng-if="c3=='*'">
+                                           = {{c1 - 
+                                               c2}}</div>
+                                   <div ng-if="c3=='/'">
+                                           = {{c1 + 
+                                               c2}}</div>
+            </div>
+            <div class="col-sm-6 col-md-3 fila" data-ng-init="
+                                               d1=10;
+                                               d2=5;
+                                               d3='/'">
+                <input type="number" ng-model="d1">
+     <input type="text" class="oper" ng-model="d3">
+                <input type="number" ng-model="d2">        
+                                   <div ng-if="d3=='+'">
+                                           = {{d1 / 
+                                               d2}}</div>
+                                   <div ng-if="d3=='-'">
+                                           = {{d1 * 
+                                               d2}}</div>
+                                   <div ng-if="d3=='*'">
+                                           = {{d1 - 
+                                               d2}}</div>
+                                   <div ng-if="d3=='/'">
+                                           = {{d1 + 
+                                               d2}}</div>
+            </div> 
+            <div class="col-sm-6 col-md-3 fila" data-ng-init="
+                                               d1=6;
+                                               d2=4;
+                                               d3='-'">
+                <input type="number" ng-model="d1">
+     <input type="text" class="oper" ng-model="d3">
+                <input type="number" ng-model="d2">        
+                                   <div ng-if="d3=='+'">
+                                           = {{d1 / 
+                                               d2}}</div>
+                                   <div ng-if="d3=='-'">
+                                           = {{d1 * 
+                                               d2}}</div>
+                                   <div ng-if="d3=='*'">
+                                           = {{d1 - 
+                                               d2}}</div>
+                                   <div ng-if="d3=='/'">
+                                           = {{d1 + 
+                                               d2}}</div>
+            </div> 
+            <div class="col-sm-6 col-md-3 fila" data-ng-init="
+                                               e1=8;
+                                               e2=2;
+                                               e3='+'">
+                <input type="number" ng-model="e1">
+     <input type="text" class="oper" ng-model="e3">
+                <input type="number" ng-model="e2">        
+                                   <div ng-if="e3=='+'">
+                                           = {{e1 / 
+                                               e2}}</div>
+                                   <div ng-if="e3=='-'">
+                                           = {{e1 * 
+                                               e2}}</div>
+                                   <div ng-if="e3=='*'">
+                                           = {{e1 - 
+                                               e2}}</div>
+                                   <div ng-if="e3=='/'">
+                                           = {{e1 + 
+                                               e2}}</div>
+            </div> 
+            <div class="col-sm-6 col-md-3 fila" data-ng-init="
+                                               f1=9;
+                                               f2=2;
+                                               f3='-'">
+                <input type="number" ng-model="f1">
+     <input type="text" class="oper" ng-model="f3">
+                <input type="number" ng-model="f2">        
+                                   <div ng-if="f3=='+'">
+                                           = {{f1 / 
+                                               f2}}</div>
+                                   <div ng-if="f3=='-'">
+                                           = {{f1 * 
+                                               f2}}</div>
+                                   <div ng-if="f3=='*'">
+                                           = {{f1 - 
+                                               f2}}</div>
+                                   <div ng-if="f3=='/'">
+                                           = {{f1 + 
+                                               f2}}</div>
+            </div> 
+            <div class="col-sm-6 col-md-3 fila" data-ng-init="
+                                               g1=12;
+                                               g2=6;
+                                               g3='-'">
+                <input type="number" ng-model="g1">
+     <input type="text" class="oper" ng-model="g3">
+                <input type="number" ng-model="g2">        
+                                   <div ng-if="g3=='+'">
+                                           = {{g1 / 
+                                               g2}}</div>
+                                   <div ng-if="g3=='-'">
+                                           = {{g1 * 
+                                               g2}}</div>
+                                   <div ng-if="g3=='*'">
+                                           = {{g1 - 
+                                               g2}}</div>
+                                   <div ng-if="g3=='/'">
+                                           = {{g1 + 
+                                               g2}}</div>
+            </div> 
+            <div class="col-sm-6 col-md-3 fila" data-ng-init="
+                                               h1=10;
+                                               h2=5;
+                                               h3='+'">
+                <input type="number" ng-model="h1">
+     <input type="text" class="oper" ng-model="h3">
+                <input type="number" ng-model="h2">        
+                                   <div ng-if="h3=='+'">
+                                           = {{h1 / 
+                                               h2}}</div>
+                                   <div ng-if="h3=='-'">
+                                           = {{h1 * 
+                                               h2}}</div>
+                                   <div ng-if="h3=='*'">
+                                           = {{h1 - 
+                                               h2}}</div>
+                                   <div ng-if="h3=='/'">
+                                           = {{h1 + 
+                                               h2}}</div>
+            </div> 
+            <div class="col-sm-6 col-md-3 fila" data-ng-init="
+                                               i1=9;
+                                               i2=3;
+                                               i3='*'">
+                <input type="number" ng-model="i1">
+     <input type="text" class="oper" ng-model="i3">
+                <input type="number" ng-model="i2">        
+                                   <div ng-if="i3=='+'">
+                                           = {{i1 / 
+                                               i2}}</div>
+                                   <div ng-if="i3=='-'">
+                                           = {{i1 * 
+                                               i2}}</div>
+                                   <div ng-if="i3=='*'">
+                                           = {{i1 - 
+                                               i2}}</div>
+                                   <div ng-if="i3=='/'">
+                                           = {{i1 + 
+                                               i2}}</div>
+            </div> 
+            <div class="col-sm-6 col-md-3 fila" data-ng-init="
+                                               j1=10;
+                                               j2=3;
+                                               j3='/'">
+                <input type="number" ng-model="j1">
+     <input type="text" class="oper" ng-model="j3">
+                <input type="number" ng-model="j2">        
+                                   <div ng-if="j3=='+'">
+                                           = {{j1 / 
+                                               j2}}</div>
+                                   <div ng-if="j3=='-'">
+                                           = {{j1 * 
+                                               j2}}</div>
+                                   <div ng-if="j3=='*'">
+                                           = {{j1 - 
+                                               j2}}</div>
+                                   <div ng-if="j3=='/'">
+                                           = {{j1 + 
+                                               j2}}</div>
+            </div> 
+            <div class="col-sm-6 col-md-3 fila" data-ng-init="
+                                               k1=8;
+                                               k2=4;
+                                               k3='*'">
+                <input type="number" ng-model="k1">
+     <input type="text" class="oper" ng-model="k3">
+                <input type="number" ng-model="k2">        
+                                   <div ng-if="k3=='+'">
+                                           = {{k1 / 
+                                               k2}}</div>
+                                   <div ng-if="k3=='-'">
+                                           = {{k1 * 
+                                               k2}}</div>
+                                   <div ng-if="k3=='*'">
+                                           = {{k1 - 
+                                               k2}}</div>
+                                   <div ng-if="k3=='/'">
+                                           = {{k1 + 
+                                               k2}}</div>
+            </div> 
+            <div class="col-sm-6 col-md-3 fila" data-ng-init="
+                                               l1=12;
+                                               l2=9;
+                                               l3='*'">
+                <input type="number" ng-model="l1">
+     <input type="text" class="oper" ng-model="l3">
+                <input type="number" ng-model="l2">        
+                                   <div ng-if="l3=='+'">
+                                           = {{l1 / 
+                                               l2}}</div>
+                                   <div ng-if="l3=='-'">
+                                           = {{l1 * 
+                                               l2}}</div>
+                                   <div ng-if="l3=='*'">
+                                           = {{l1 - 
+                                               l2}}</div>
+                                   <div ng-if="l3=='/'">
+                                           = {{l1 + 
+                                               l2}}</div>
+            </div> 
+            <div class="col-sm-6 col-md-3 fila" data-ng-init="
+                                               m1=7;
+                                               m2=3;
+                                               m3='-'">
+                <input type="number" ng-model="m1">
+     <input type="text" class="oper" ng-model="m3">
+                <input type="number" ng-model="m2">        
+                                   <div ng-if="m3=='+'">
+                                           = {{m1 / 
+                                               m2}}</div>
+                                   <div ng-if="m3=='-'">
+                                           = {{m1 * 
+                                               m2}}</div>
+                                   <div ng-if="m3=='*'">
+                                           = {{m1 - 
+                                               m2}}</div>
+                                   <div ng-if="m3=='/'">
+                                           = {{m1 + 
+                                               m2}}</div>
+            </div> 
+            <div class="col-sm-6 col-md-3 fila" data-ng-init="
+                                               n1=8;
+                                               n2=6;
+                                               n3='/'">
+                <input type="number" ng-model="n1">
+     <input type="text" class="oper" ng-model="n3">
+                <input type="number" ng-model="n2">        
+                                   <div ng-if="n3=='+'">
+                                           = {{n1 / 
+                                               n2}}</div>
+                                   <div ng-if="n3=='-'">
+                                           = {{n1 * 
+                                               n2}}</div>
+                                   <div ng-if="n3=='*'">
+                                           = {{n1 - 
+                                               n2}}</div>
+                                   <div ng-if="n3=='/'">
+                                           = {{n1 + 
+                                               n2}}</div>
+            </div> 
+            <div class="col-sm-6 col-md-3 fila" data-ng-init="
+                                               o1=7;
+                                               o2=7;
+                                               o3='-'">
+                <input type="number" ng-model="o1">
+     <input type="text" class="oper" ng-model="o3">
+                <input type="number" ng-model="o2">        
+                                   <div ng-if="o3=='+'">
+                                           = {{o1 / 
+                                               o2}}</div>
+                                   <div ng-if="o3=='-'">
+                                           = {{o1 * 
+                                               o2}}</div>
+                                   <div ng-if="o3=='*'">
+                                           = {{o1 - 
+                                               o2}}</div>
+                                   <div ng-if="o3=='/'">
+                                           = {{o1 + 
+                                               o2}}</div>
+            </div> 
+            <div class="col-sm-6 col-md-3 fila" data-ng-init="
+                                               p1=6;
+                                               p2=5;
+                                               p3='-'">
+                <input type="number" ng-model="p1">
+     <input type="text" class="oper" ng-model="p3">
+                <input type="number" ng-model="p2">        
+                                   <div ng-if="p3=='+'">
+                                           = {{p1 / 
+                                               p2}}</div>
+                                   <div ng-if="p3=='-'">
+                                           = {{p1 * 
+                                               p2}}</div>
+                                   <div ng-if="p3=='*'">
+                                           = {{p1 - 
+                                               p2}}</div>
+                                   <div ng-if="p3=='/'">
+                                           = {{p1 + 
+                                               p2}}</div>
+            </div> 
+            <div class="col-sm-6 col-md-3 fila" data-ng-init="
+                                               q1=7;
+                                               q2=5;
+                                               q3='/'">
+                <input type="number" ng-model="q1">
+     <input type="text" class="oper" ng-model="q3">
+                <input type="number" ng-model="q2">        
+                                   <div ng-if="q3=='+'">
+                                           = {{q1 / 
+                                               q2}}</div>
+                                   <div ng-if="q3=='-'">
+                                           = {{q1 * 
+                                               q2}}</div>
+                                   <div ng-if="q3=='*'">
+                                           = {{q1 - 
+                                               q2}}</div>
+                                   <div ng-if="q3=='/'">
+                                           = {{q1 + 
+                                               q2}}</div>
+            </div> 
+            <div class="col-sm-6 col-md-3 fila" data-ng-init="
+                                               r1=9;
+                                               r2=8;
+                                               r3='-'">
+                <input type="number" ng-model="r1">
+     <input type="text" class="oper" ng-model="r3">
+                <input type="number" ng-model="r2">        
+                                   <div ng-if="r3=='+'">
+                                           = {{r1 / 
+                                               r2}}</div>
+                                   <div ng-if="r3=='-'">
+                                           = {{r1 * 
+                                               r2}}</div>
+                                   <div ng-if="r3=='*'">
+                                           = {{r1 - 
+                                               r2}}</div>
+                                   <div ng-if="r3=='/'">
+                                           = {{r1 + 
+                                               r2}}</div>
+            </div> 
+            <div class="col-sm-6 col-md-3 fila" data-ng-init="
+                                               s1=6;
+                                               s2=3;
+                                               s3='/'">
+                <input type="number" ng-model="s1">
+     <input type="text" class="oper" ng-model="s3">
+                <input type="number" ng-model="s2">        
+                                   <div ng-if="s3=='+'">
+                                           = {{s1 / 
+                                               s2}}</div>
+                                   <div ng-if="s3=='-'">
+                                           = {{s1 * 
+                                               s2}}</div>
+                                   <div ng-if="s3=='*'">
+                                           = {{s1 - 
+                                               s2}}</div>
+                                   <div ng-if="s3=='/'">
+                                           = {{s1 + 
+                                               s2}}</div>
+            </div> 
+            <div class="col-sm-6 col-md-3 fila" data-ng-init="
+                                               t1=9;
+                                               t2=3;
+                                               t3='/'">
+                <input type="number" ng-model="t1">
+     <input type="text" class="oper" ng-model="t3">
+                <input type="number" ng-model="t2">        
+                                   <div ng-if="t3=='+'">
+                                           = {{t1 / 
+                                               t2}}</div>
+                                   <div ng-if="t3=='-'">
+                                           = {{t1 * 
+                                               t2}}</div>
+                                   <div ng-if="t3=='*'">
+                                           = {{t1 - 
+                                               t2}}</div>
+                                   <div ng-if="t3=='/'">
+                                           = {{t1 + 
+                                               t2}}</div>
+            </div> 
+            <div class="col-sm-6 col-md-3 fila" data-ng-init="
+                                               u1=4;
+                                               u2=2;
+                                               u3='-'">
+                <input type="number" ng-model="u1">
+     <input type="text" class="oper" ng-model="u3">
+                <input type="number" ng-model="u2">        
+                                   <div ng-if="u3=='+'">
+                                           = {{u1 / 
+                                               u2}}</div>
+                                   <div ng-if="u3=='-'">
+                                           = {{u1 * 
+                                               u2}}</div>
+                                   <div ng-if="u3=='*'">
+                                           = {{u1 - 
+                                               u2}}</div>
+                                   <div ng-if="u3=='/'">
+                                           = {{u1 + 
+                                               u2}}</div>
+            </div> 
+            <div class="col-sm-6 col-md-3 fila" data-ng-init="
+                                               v1=14;
+                                               v2=13;
+                                               v3='*'">
+                <input type="number" ng-model="v1">
+     <input type="text" class="oper" ng-model="v3">
+                <input type="number" ng-model="v2">        
+                                   <div ng-if="v3=='+'">
+                                           = {{v1 / 
+                                               v2}}</div>
+                                   <div ng-if="v3=='-'">
+                                           = {{v1 * 
+                                               v2}}</div>
+                                   <div ng-if="v3=='*'">
+                                           = {{v1 - 
+                                               v2}}</div>
+                                   <div ng-if="v3=='/'">
+                                           = {{v1 + 
+                                               v2}}</div>
+            </div> 
+            <div class="col-sm-6 col-md-3 fila" data-ng-init="
+                                               w1=4;
+                                               w2=2;
+                                               w3='-'">
+                <input type="number" ng-model="w1">
+     <input type="text" class="oper" ng-model="w3">
+                <input type="number" ng-model="w2">        
+                                   <div ng-if="w3=='+'">
+                                           = {{w1 / 
+                                               w2}}</div>
+                                   <div ng-if="w3=='-'">
+                                           = {{w1 * 
+                                               w2}}</div>
+                                   <div ng-if="w3=='*'">
+                                           = {{w1 - 
+                                               w2}}</div>
+                                   <div ng-if="w3=='/'">
+                                           = {{w1 + 
+                                               w2}}</div>
+            </div> 
+            <div class="col-sm-6 col-md-3 fila" data-ng-init="
+                                               x1=8;
+                                               x2=4;
+                                               x3='+'">
+                <input type="number" ng-model="x1">
+     <input type="text" class="oper" ng-model="x3">
+                <input type="number" ng-model="x2">        
+                                   <div ng-if="x3=='+'">
+                                           = {{x1 / 
+                                               x2}}</div>
+                                   <div ng-if="x3=='-'">
+                                           = {{x1 * 
+                                               x2}}</div>
+                                   <div ng-if="x3=='*'">
+                                           = {{x1 - 
+                                               x2}}</div>
+                                   <div ng-if="x3=='/'">
+                                           = {{x1 + 
+                                               x2}}</div>
+            </div> 
+            <div class="col-sm-6 col-md-3 fila" data-ng-init="
+                                               y1=8;
+                                               y2=4;
+                                               y3='/'">
+                <input type="number" ng-model="y1">
+     <input type="text" class="oper" ng-model="y3">
+                <input type="number" ng-model="y2">        
+                                   <div ng-if="y3=='+'">
+                                           = {{y1 / 
+                                               y2}}</div>
+                                   <div ng-if="y3=='-'">
+                                           = {{y1 * 
+                                               y2}}</div>
+                                   <div ng-if="y3=='*'">
+                                           = {{y1 - 
+                                               y2}}</div>
+                                   <div ng-if="y3=='/'">
+                                           = {{y1 + 
+                                               y2}}</div>
+            </div> 
+            <div class="col-sm-6 col-md-3 fila" data-ng-init="
+                                               z1=16;
+                                               z2=3;
+                                               z3='/'">
+                <input type="number" ng-model="z1">
+     <input type="text" class="oper" ng-model="z3">
+                <input type="number" ng-model="z2">        
+                                   <div ng-if="z3=='+'">
+                                           = {{z1 / 
+                                               z2}}</div>
+                                   <div ng-if="z3=='-'">
+                                           = {{z1 * 
+                                               z2}}</div>
+                                   <div ng-if="z3=='*'">
+                                           = {{z1 - 
+                                               z2}}</div>
+                                   <div ng-if="z3=='/'">
+                                           = {{z1 + 
+                                               z2}}</div>
+            </div>           
+            <div class="col-sm-6 col-md-3 fila" data-ng-init="
+                                               aa1=5;
+                                               aa2=3;
+                                               aa3='*'">
+                <input type="number" ng-model="aa1">
+     <input type="text" class="oper" ng-model="aa3">
+                <input type="number" ng-model="aa2">        
+                                   <div ng-if="aa3=='+'">
+                                           = {{aa1 / 
+                                               aa2}}</div>
+                                   <div ng-if="aa3=='-'">
+                                           = {{aa1 * 
+                                               aa2}}</div>
+                                   <div ng-if="aa3=='*'">
+                                           = {{aa1 - 
+                                               aa2}}</div>
+                                   <div ng-if="aa3=='/'">
+                                           = {{aa1 + 
+                                               aa2}}</div>
+            </div> 
+            <div class="col-sm-6 col-md-3 fila" data-ng-init="
+                                               ab1=9;
+                                               ab2=3;
+                                               ab3='-'">
+                <input type="number" ng-model="ab1">
+     <input type="text" class="oper" ng-model="ab3">
+                <input type="number" ng-model="ab2">        
+                                   <div ng-if="ab3=='+'">
+                                           = {{ab1 / 
+                                               ab2}}</div>
+                                   <div ng-if="ab3=='-'">
+                                           = {{ab1 * 
+                                               ab2}}</div>
+                                   <div ng-if="ab3=='*'">
+                                           = {{ab1 - 
+                                               ab2}}</div>
+                                   <div ng-if="ab3=='/'">
+                                           = {{ab1 + 
+                                               ab2}}</div>
+            </div> 
+            <div class="col-sm-6 col-md-3 fila" data-ng-init="
+                                               ac1=6;
+                                               ac2=3;
+                                               ac3='-'">
+                <input type="number" ng-model="ac1">
+     <input type="text" class="oper" ng-model="ac3">
+                <input type="number" ng-model="ac2">        
+                                   <div ng-if="ac3=='+'">
+                                           = {{ac1 / 
+                                               ac2}}</div>
+                                   <div ng-if="ac3=='-'">
+                                           = {{ac1 * 
+                                               ac2}}</div>
+                                   <div ng-if="ac3=='*'">
+                                           = {{ac1 - 
+                                               ac2}}</div>
+                                   <div ng-if="ac3=='/'">
+                                           = {{ac1 + 
+                                               ac2}}</div>
+            </div> 
+            <div class="col-sm-6 col-md-3 fila" data-ng-init="
+                                               ad1=10;
+                                               ad2=3;
+                                               ad3='-'">
+                <input type="number" ng-model="ad1">
+     <input type="text" class="oper" ng-model="ad3">
+                <input type="number" ng-model="ad2">        
+                                   <div ng-if="ad3=='+'">
+                                           = {{ad1 / 
+                                               ad2}}</div>
+                                   <div ng-if="ad3=='-'">
+                                           = {{ad1 * 
+                                               ad2}}</div>
+                                   <div ng-if="ad3=='*'">
+                                           = {{ad1 - 
+                                               ad2}}</div>
+                                   <div ng-if="ad3=='/'">
+                                           = {{ad1 + 
+                                               ad2}}</div>
+            </div> 
+            <div class="col-sm-6 col-md-3 fila" data-ng-init="
+                                               ae1=10;
+                                               ae2=8;
+                                               ae3='*'">
+                <input type="number" ng-model="ae1">
+     <input type="text" class="oper" ng-model="ae3">
+                <input type="number" ng-model="ae2">        
+                                   <div ng-if="ae3=='+'">
+                                           = {{ae1 / 
+                                               ae2}}</div>
+                                   <div ng-if="ae3=='-'">
+                                           = {{ae1 * 
+                                               ae2}}</div>
+                                   <div ng-if="ae3=='*'">
+                                           = {{ae1 - 
+                                               ae2}}</div>
+                                   <div ng-if="ae3=='/'">
+                                           = {{ae1 + 
+                                               ae2}}</div>
+            </div> 
+            <div class="col-sm-6 col-md-3 fila" data-ng-init="
+                                               af1=15;
+                                               af2=5;
+                                               af3='+'">
+                <input type="number" ng-model="af1">
+     <input type="text" class="oper" ng-model="af3">
+                <input type="number" ng-model="af2">        
+                                   <div ng-if="af3=='+'">
+                                           = {{af1 / 
+                                               af2}}</div>
+                                   <div ng-if="af3=='-'">
+                                           = {{af1 * 
+                                               af2}}</div>
+                                   <div ng-if="af3=='*'">
+                                           = {{af1 - 
+                                               af2}}</div>
+                                   <div ng-if="af3=='/'">
+                                           = {{af1 + 
+                                               af2}}</div>
+            </div> 
+            <div class="col-sm-6 col-md-3 fila" data-ng-init="
+                                               ag1=7;
+                                               ag2=2;
+                                               ag3='/'">
+                <input type="number" ng-model="ag1">
+     <input type="text" class="oper" ng-model="ag3">
+                <input type="number" ng-model="ag2">        
+                                   <div ng-if="ag3=='+'">
+                                           = {{ag1 / 
+                                               ag2}}</div>
+                                   <div ng-if="ag3=='-'">
+                                           = {{ag1 * 
+                                               ag2}}</div>
+                                   <div ng-if="ag3=='*'">
+                                           = {{ag1 - 
+                                               ag2}}</div>
+                                   <div ng-if="ag3=='/'">
+                                           = {{ag1 + 
+                                               ag2}}</div>
+            </div> 
+            <div class="col-sm-6 col-md-3 fila" data-ng-init="
+                                               ah1=13;
+                                               ah2=10;
+                                               ah3='*'">
+                <input type="number" ng-model="ah1">
+     <input type="text" class="oper" ng-model="ah3">
+                <input type="number" ng-model="ah2">        
+                                   <div ng-if="ah3=='+'">
+                                           = {{ah1 / 
+                                               ah2}}</div>
+                                   <div ng-if="ah3=='-'">
+                                           = {{ah1 * 
+                                               ah2}}</div>
+                                   <div ng-if="ah3=='*'">
+                                           = {{ah1 - 
+                                               ah2}}</div>
+                                   <div ng-if="ah3=='/'">
+                                           = {{ah1 + 
+                                               ah2}}</div>
+            </div> 
+            <div class="col-sm-6 col-md-3 fila" data-ng-init="
+                                               ai1=6;
+                                               ai2=6;
+                                               ai3='/'">
+                <input type="number" ng-model="ai1">
+     <input type="text" class="oper" ng-model="ai3">
+                <input type="number" ng-model="ai2">        
+                                   <div ng-if="ai3=='+'">
+                                           = {{ai1 / 
+                                               ai2}}</div>
+                                   <div ng-if="ai3=='-'">
+                                           = {{ai1 * 
+                                               ai2}}</div>
+                                   <div ng-if="ai3=='*'">
+                                           = {{ai1 - 
+                                               ai2}}</div>
+                                   <div ng-if="ai3=='/'">
+                                           = {{ai1 + 
+                                               ai2}}</div>
+            </div> 
+            <div class="col-sm-6 col-md-3 fila" data-ng-init="
+                                               aj1=11;
+                                               aj2=4;
+                                               aj3='/'">
+                <input type="number" ng-model="aj1">
+     <input type="text" class="oper" ng-model="aj3">
+                <input type="number" ng-model="aj2">        
+                                   <div ng-if="aj3=='+'">
+                                           = {{aj1 / 
+                                               aj2}}</div>
+                                   <div ng-if="aj3=='-'">
+                                           = {{aj1 * 
+                                               aj2}}</div>
+                                   <div ng-if="aj3=='*'">
+                                           = {{aj1 - 
+                                               aj2}}</div>
+                                   <div ng-if="aj3=='/'">
+                                           = {{aj1 + 
+                                               aj2}}</div>
+            </div> 
+            <div class="col-sm-6 col-md-3 fila" data-ng-init="
+                                               ak1=8;
+                                               ak2=3;
+                                               ak3='-'">
+                <input type="number" ng-model="ak1">
+     <input type="text" class="oper" ng-model="ak3">
+                <input type="number" ng-model="ak2">        
+                                   <div ng-if="ak3=='+'">
+                                           = {{ak1 / 
+                                               ak2}}</div>
+                                   <div ng-if="ak3=='-'">
+                                           = {{ak1 * 
+                                               ak2}}</div>
+                                   <div ng-if="ak3=='*'">
+                                           = {{ak1 - 
+                                               ak2}}</div>
+                                   <div ng-if="ak3=='/'">
+                                           = {{ak1 + 
+                                               ak2}}</div>
+            </div> 
+            <div class="col-sm-6 col-md-3 fila" data-ng-init="
+                                               al1=12;
+                                               al2=6;
+                                               al3='+'">
+                <input type="number" ng-model="al1">
+     <input type="text" class="oper" ng-model="al3">
+                <input type="number" ng-model="al2">        
+                                   <div ng-if="al3=='+'">
+                                           = {{al1 / 
+                                               al2}}</div>
+                                   <div ng-if="al3=='-'">
+                                           = {{al1 * 
+                                               al2}}</div>
+                                   <div ng-if="al3=='*'">
+                                           = {{al1 - 
+                                               al2}}</div>
+                                   <div ng-if="al3=='/'">
+                                           = {{al1 + 
+                                               al2}}</div>
+            </div> 
+            <div class="col-sm-6 col-md-3 fila" data-ng-init="
+                                               am1=9;
+                                               am2=3;
+                                               am3='+'">
+                <input type="number" ng-model="am1">
+     <input type="text" class="oper" ng-model="am3">
+                <input type="number" ng-model="am2">        
+                                   <div ng-if="am3=='+'">
+                                           = {{am1 / 
+                                               am2}}</div>
+                                   <div ng-if="am3=='-'">
+                                           = {{am1 * 
+                                               am2}}</div>
+                                   <div ng-if="am3=='*'">
+                                           = {{am1 - 
+                                               am2}}</div>
+                                   <div ng-if="am3=='/'">
+                                           = {{am1 + 
+                                               am2}}</div>
+            </div> 
+
+        </div>
+        <br/>
+        <div class="row">            
+            <div class="alert alert-secondary" role="alert">
+                Desarrollado por <a href="#" class="alert-link">Cristhian Camilo Perez Veloza</a>
+              </div>
+        </div>
+        
+    </div>
+</body>
+</html>
